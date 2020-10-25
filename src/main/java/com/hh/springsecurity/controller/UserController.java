@@ -25,10 +25,15 @@ public class UserController {
         return "index";
     }
 
-//    @RequestMapping("/toError")
-//    public String toError() {
-//        return "error";
-//    }
+    @RequestMapping("/toError")
+    public String toError() {
+        return "error";
+    }
+
+    @RequestMapping("/toLogout")
+    public String toLogout() {
+        return "login";
+    }
 
     @RequestMapping("/findUserById/{id}")
     @ResponseBody
