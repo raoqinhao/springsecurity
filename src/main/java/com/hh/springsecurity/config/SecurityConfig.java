@@ -26,10 +26,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.formLogin().loginPage("/login.html")
+        http.formLogin().loginPage("/toLogin")
                 .loginProcessingUrl("/toLogin")
                 .defaultSuccessUrl("/toIndex")
-                .failureUrl("/toError")
                 .permitAll();
         http.authorizeRequests()
                 .antMatchers("admin").permitAll()
