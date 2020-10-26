@@ -6,6 +6,7 @@ import com.hh.springsecurity.pojo.UserBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -16,9 +17,9 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public UserBean findUserById(String id) {
-//        UserBean userBean = userMapper.findUserById(Integer.valueOf(id));
-//        return userBean;
-        return null;
+        UserBean userBean = userMapper.findUserById(id);
+        return userBean;
+//        return null;
     }
 
     @Override
@@ -37,6 +38,11 @@ public class UserServiceImpl implements UserService{
             return "注册失败";
         }
         return "注册失败";
+    }
+
+    @Override
+    public List<UserBean> findAllUser() {
+        return userMapper.findAllUser();
     }
 
 }

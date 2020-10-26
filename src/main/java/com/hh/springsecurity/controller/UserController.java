@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 public class UserController {
 
@@ -37,8 +39,8 @@ public class UserController {
     @RequestMapping("/findUserById/{id}")
     @ResponseBody
     public UserBean findUserById(@PathVariable String id) {
-//        UserBean userBean = userService.findUserById(id);
-        return null;
+        UserBean userBean = userService.findUserById(id);
+        return userBean;
     }
 
 
@@ -50,5 +52,11 @@ public class UserController {
         return userService.saveUserByRegister(json);
     }
 
+
+    @RequestMapping(value = "findAllUser")
+    @ResponseBody
+    public List<UserBean> findAllUser() {
+        return userService.findAllUser();
+    }
 
 }

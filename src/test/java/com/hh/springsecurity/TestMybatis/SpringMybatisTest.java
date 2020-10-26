@@ -24,7 +24,7 @@ public class SpringMybatisTest {
     @Rollback(false)
     @Test
     public void getUserMapper() {
-        UserBean userBean = userMapper.findUserById(1);
+        UserBean userBean = userMapper.findUserById("");
         UserBean userName = userMapper.findUserByUserName("zhangsan");
         System.out.println(userBean);
         System.out.println(userName);
