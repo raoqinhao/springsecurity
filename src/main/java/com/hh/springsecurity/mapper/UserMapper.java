@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Mapper
-//@Repository
+@Repository
 public interface UserMapper {
 
 //    @Select("SELECT * FROM u_user WHERE id = #{id}")

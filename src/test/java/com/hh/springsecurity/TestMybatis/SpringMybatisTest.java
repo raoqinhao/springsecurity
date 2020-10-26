@@ -21,7 +21,7 @@ public class SpringMybatisTest {
     @Autowired
     private UserMapper userMapper;
 
-    @Rollback(false)
+//    @Rollback(false)
     @Test
     public void getUserMapper() {
         UserBean userBean = userMapper.findUserById("");
@@ -32,7 +32,7 @@ public class SpringMybatisTest {
     }
 
     @Test
-    @Rollback(false)
+//    @Rollback(false)
     public void insertUserInfo() {
         UserBean userBean = new UserBean(UUID.randomUUID().toString().replaceAll("-",""),"lisi","123","17167495555");
         int i = userMapper.saveUserByRegister(userBean);
