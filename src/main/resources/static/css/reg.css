@@ -1,0 +1,222 @@
+@charset "UTF-8";
+/* 大背景 */
+.fluid_body {
+  background: #ECE9E6;
+  /* fallback for old browsers */
+  background: linear-gradient(to left, #FFFFFF, #ECE9E6);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #FFFFFF, #ECE9E6);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ }
+
+/* 公共调整 */
+.btn {
+  box-shadow: 0 0 0 0 #000 !important; }
+
+.form-control {
+  box-shadow: 0 0 0 0 #000 !important; }
+
+.fluid_hf {
+  background-color: #e9ecef;
+  margin: 0 auto; }
+  .fluid_hf .header {
+    height: 130px;
+    margin-bottom: 0;
+    font-weight: bold !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 1.25rem; }
+    .fluid_hf .header .breadcrumb-item {
+      color: #790603; }
+      .fluid_hf .header .breadcrumb-item + .breadcrumb-item::before {
+        content: "|";
+        padding-left: 1.5rem;
+        padding-right: 1.5rem; }
+      .fluid_hf .header .breadcrumb-item img {
+        width: 240px; }
+  .fluid_hf div.foot {
+    height: 150px;
+    width: 1110px;
+    margin: 0 auto;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background-color: #e9ecef;
+    text-align: center;
+    font-size: .75rem; }
+    .fluid_hf div.foot::before {
+      /* before和after是在元素内部最前边或者最后边插入元素。display:table解决上边距缺失;display:block解决高度坍塌 */
+      content: "";
+      display: table; }
+    .fluid_hf div.foot .footer {
+      margin-top: 35px;
+      justify-content: center; }
+      .fluid_hf div.foot .footer a {
+        text-decoration: none;
+        color: #000000; }
+        .fluid_hf div.foot .footer a:hover {
+          text-decoration: underline; }
+    .fluid_hf div.foot p {
+      opacity: .3;
+      padding-bottom: 1rem; }
+
+.fluid_body > .container {
+  height: 655px;
+  width: 500px; }
+  .fluid_body > .container .log_up {
+    font-size: 12px;
+    color: #888; }
+    .fluid_body > .container .log_up .d-flex {
+      margin-top: 80px;
+      /* 变化后 */
+      /* 变化后 */
+      /* 变化后 */ }
+      .fluid_body > .container .log_up .d-flex .num {
+        width: 26px;
+        height: 25px;
+        margin: 0 auto;
+        line-height: 20px;
+        border: 2px solid #888;
+        border-radius: 50%;
+        text-align: center; }
+      .fluid_body > .container .log_up .d-flex p {
+        margin: 15px 0; }
+      .fluid_body > .container .log_up .d-flex .arrow {
+        width: 101px;
+        height: 24px;
+        background: url(../../../public_img/user_img/reg-icon.png) 19px -33px; }
+      .fluid_body > .container .log_up .d-flex .num_chan {
+        background: #33bb44;
+        line-height: 20px;
+        border: 2px solid #33bb44;
+        border-radius: 50%;
+        text-align: center;
+        color: #fff; }
+      .fluid_body > .container .log_up .d-flex .num_change {
+        border-radius: 50%;
+        background: url(../../../public_img/user_img/reg-icon.png) 1px 1px; }
+      .fluid_body > .container .log_up .d-flex .tip_change {
+        color: #33bb44; }
+      .fluid_body > .container .log_up .d-flex .arrow_change {
+        width: 101px;
+        height: 24px;
+        background: url(../../../public_img/user_img/reg-icon.png) 19px -63px; }
+  .fluid_body > .container .log_down #login_1, .fluid_body > .container .log_down #login_2, .fluid_body > .container .log_down #login_3 {
+    margin-top: 60px; }
+    .fluid_body > .container .log_down #login_1 .form-control, .fluid_body > .container .log_down #login_2 .form-control, .fluid_body > .container .log_down #login_3 .form-control {
+      height: 55px !important;
+      width: 352px;
+      border-radius: 4px !important;
+      border-top-left-radius: 0 !important;
+      border-bottom-left-radius: 0 !important;
+      font-family: Arial; }
+    .fluid_body > .container .log_down #login_1 .btn, .fluid_body > .container .log_down #login_2 .btn, .fluid_body > .container .log_down #login_3 .btn {
+      height: 55px !important;
+      width: 100%;
+      border-radius: 4px;
+      border: 0; }
+    .fluid_body > .container .log_down #login_1 .btn_2, .fluid_body > .container .log_down #login_2 .btn_2, .fluid_body > .container .log_down #login_3 .btn_2 {
+      margin-top: 75px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #fff;
+      background-color: #d2413e; }
+    .fluid_body > .container .log_down #login_1 .btn:hover, .fluid_body > .container .log_down #login_1 .form-control:hover, .fluid_body > .container .log_down #login_2 .btn:hover, .fluid_body > .container .log_down #login_2 .form-control:hover, .fluid_body > .container .log_down #login_3 .btn:hover, .fluid_body > .container .log_down #login_3 .form-control:hover {
+      border-color: #80bdff; }
+    .fluid_body > .container .log_down #login_1 .green_bor, .fluid_body > .container .log_down #login_2 .green_bor, .fluid_body > .container .log_down #login_3 .green_bor {
+      border: 1px solid #32da40; }
+    .fluid_body > .container .log_down #login_1 .red_bor, .fluid_body > .container .log_down #login_2 .red_bor, .fluid_body > .container .log_down #login_3 .red_bor {
+      border: 1px solid #da4c2c; }
+  .fluid_body > .container .log_down #login_1 {
+    margin-top: 60px;
+    position: relative; }
+    .fluid_body > .container .log_down #login_1 button:first-child {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      background-color: #fff;
+      border: 1px solid #ced4da;
+      border-right: 0; }
+    .fluid_body > .container .log_down #login_1 .dropdown-toggle, .fluid_body > .container .log_down #login_1 .form-control, .fluid_body > .container .log_down #login_1 .btn_1 {
+      font-size: 16px; }
+    .fluid_body > .container .log_down #login_1 .dropdown-toggle {
+      width: 118px; }
+    .fluid_body > .container .log_down #login_1 .btn_1 {
+      margin-top: 60px; }
+      .fluid_body > .container .log_down #login_1 .btn_1:hover {
+        background-color: #ccc; }
+    .fluid_body > .container .log_down #login_1 .btn_22:hover {
+      background-color: #b10704; }
+    .fluid_body > .container .log_down #login_1 span {
+      width: 90px;
+      height: 25px;
+      position: absolute;
+      top: 15px;
+      right: 35px;
+      font-size: 12px;
+      line-height: 25px;
+      display: none; }
+      .fluid_body > .container .log_down #login_1 span.pho_err {
+        background: #fff url(../../../public_img/user_img/error.png) no-repeat 64px -0.5px;
+        color: #d85a49;
+        display: inline-block; }
+      .fluid_body > .container .log_down #login_1 span.pho_cor {
+        background: #fff url(../../../public_img/user_img/correct.png) no-repeat 64px -0.5px;
+        color: #5fbc5a;
+        display: inline-block; }
+  .fluid_body > .container .log_down #login_2 {
+    display: none;
+    margin-top: 60px;
+    position: relative; }
+    .fluid_body > .container .log_down #login_2 .form-control {
+      width: 470px; }
+      .fluid_body > .container .log_down #login_2 .form-control ~ .form-control {
+        margin-top: 25px; }
+      .fluid_body > .container .log_down #login_2 .form-control.log2_err {
+        background: #fff url(../../../public_img/user_img/log_err.png) no-repeat 425px 15px;
+        display: inline-block; }
+      .fluid_body > .container .log_down #login_2 .form-control.log2_cor {
+        background: #fff url(../../../public_img/user_img/log_cor.png) no-repeat 425px 17px;
+        display: inline-block; }
+    .fluid_body > .container .log_down #login_2 .btn {
+      margin-top: 30px; }
+    .fluid_body > .container .log_down #login_2 span {
+      padding-left: 26px;
+      display: block;
+      background: url(../../../public_img/user_img/care1.png) no-repeat 0 3px;
+      position: absolute;
+      color: #666;
+      font-family: "Segoe UI Emoji";
+      display: none; }
+      .fluid_body > .container .log_down #login_2 span.sp_err {
+        background: url(../../../public_img/user_img/care2.png) no-repeat 0 3px; }
+    .fluid_body > .container .log_down #login_2 b {
+      height: 25px;
+      width: 25px;
+      position: absolute;
+      right: 50px;
+      display: block;
+      z-index: 5; }
+      .fluid_body > .container .log_down #login_2 b:nth-child(8) {
+        background: url(../../../public_img/user_img/nolook.png) no-repeat 1px 1px;
+        top: 95px; }
+      .fluid_body > .container .log_down #login_2 b:last-child {
+        background: url(../../../public_img/user_img/nolook.png) no-repeat 1px 1px;
+        bottom: 100px; }
+      .fluid_body > .container .log_down #login_2 b.look1 {
+        background: url(../../../public_img/user_img/look.png) no-repeat 1px 4px;
+        top: 95px; }
+      .fluid_body > .container .log_down #login_2 b.look2 {
+        background: url(../../../public_img/user_img/look.png) no-repeat 1px 4px;
+        bottom: 100px; }
+  .fluid_body > .container .log_down #login_3 {
+    display: none;
+    text-align: center; }
+    .fluid_body > .container .log_down #login_3 span {
+      display: block;
+      margin-top: 10px;
+      font-size: 40px;
+      font-weight: bolder;
+      color: #b10704; }
+      .fluid_body > .container .log_down #login_3 span ~ a {
+        margin-top: 55px;
+        font-size: 24px;
+        color: #666; }
+    .fluid_body > .container .log_down #login_3 a {
+      display: block; }

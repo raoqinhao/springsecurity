@@ -1,7 +1,6 @@
 package com.hh.springsecurity.controller;
 
 
-import com.alibaba.fastjson.JSONObject;
 import com.hh.springsecurity.pojo.UserBean;
 import com.hh.springsecurity.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +15,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping("/toLogin")
+    @RequestMapping(value = "/toLogin")
     public String toLogin() {
         return "login";
     }
@@ -36,6 +35,11 @@ public class UserController {
         return "login";
     }
 
+    @RequestMapping("/toRegisterPage")
+    public String toRegisterPage() {
+        return "register";
+    }
+
     @RequestMapping("/findUserById/{id}")
     @ResponseBody
     public UserBean findUserById(@PathVariable String id) {
@@ -43,15 +47,11 @@ public class UserController {
         return userBean;
     }
 
-
-
-
     @RequestMapping(value = "/toRegister", method = RequestMethod.POST)
     @ResponseBody
     public String toRegister(@RequestBody String json) {
         return userService.saveUserByRegister(json);
     }
-
 
     @RequestMapping(value = "findAllUser")
     @ResponseBody

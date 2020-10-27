@@ -1,0 +1,284 @@
+ /* 大背景 */
+.fluid_body{
+	background: #ECE9E6;
+	/* fallback for old browsers */
+	background: linear-gradient(to left, #FFFFFF, #ECE9E6);
+	/* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #FFFFFF, #ECE9E6);
+	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+/* 公共调整 */
+.btn{box-shadow: 0 0 0 0 #000 !important;}
+.form-control{box-shadow: 0 0 0 0 #000 !important;}
+// 创建变量
+$main_color: #790603;
+$font_weight: bold;
+$bg_color: #e9ecef;
+$font_family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+// 使用变量
+.fluid_hf{
+	background-color: $bg_color;
+	margin: 0 auto;
+	.header{// header
+		height: 130px;
+		margin-bottom: 0;
+		font-weight: $font_weight !important;
+		font-family: $font_family;
+		font-size: 1.25rem;
+		.breadcrumb-item{
+			color: $main_color;
+			& + .breadcrumb-item::before{
+				content: "|";
+				padding-left: 1.5rem;
+				padding-right: 1.5rem;
+			}
+			img{
+				width: 240px;
+			}
+		}
+	}
+	// footer
+	div.foot{
+		height: 150px;width: 1110px;
+		margin: 0 auto;
+		border-bottom-left-radius: 8px;
+		border-bottom-right-radius: 8px;
+		background-color: $bg_color;
+		text-align: center;
+		font-size: .75rem;
+		&::before{/* before和after是在元素内部最前边或者最后边插入元素。display:table解决上边距缺失;display:block解决高度坍塌 */
+			content: "";
+			display: table;
+		}
+		.footer{
+			margin-top: 35px;
+			justify-content: center;
+			a{
+				text-decoration: none;
+				color: #000000;
+				&:hover{
+					text-decoration: underline;
+				}
+			}
+		}
+		p{
+			opacity: .3;
+			padding-bottom: 1rem;
+		}
+	 }
+} 
+// 样式调整
+.fluid_body>.container{
+	height: 655px;
+	width: 500px;
+	.log_up{
+		font-size: 12px;
+		color: #888;
+		.d-flex{
+			margin-top: 80px;
+			.num{
+				width: 26px;height: 25px;
+				margin: 0 auto;
+				line-height: 20px;
+				border: 2px solid #888;
+				border-radius: 50%;
+				text-align: center;
+			}
+			p{
+				margin: 15px 0;
+			}
+			.arrow{
+				width: 101px;height: 24px;
+				background: url(../../../public_img/user_img/reg-icon.png) 19px -33px;
+			}
+			/* 变化后 */
+			.num_chan{
+				background: #33bb44;
+				line-height: 20px;
+				border: 2px solid #33bb44;
+				border-radius: 50%;
+				text-align: center;
+				color: #fff ;
+			}
+			.num_change{
+				border-radius: 50%;
+				background:  url(../../../public_img/user_img/reg-icon.png) 1px 1px;
+			}
+			/* 变化后 */
+			.tip_change{
+				color: #33bb44;
+			}
+			/* 变化后 */
+			.arrow_change{
+				width: 101px;height: 24px;
+				background: url(../../../public_img/user_img/reg-icon.png) 19px -63px;
+			}
+		}
+	}
+	.log_down{
+		#login_1,#login_2,#login_3{
+			margin-top: 60px;
+			.form-control{
+				height: 55px !important;
+				width: 352px;
+				border-radius: 4px !important;
+				border-top-left-radius: 0 !important;
+				border-bottom-left-radius: 0 !important;
+				font-family: Arial;
+			}
+			.btn{
+				height: 55px !important;
+				width: 100%;
+				border-radius: 4px;
+				border: 0;
+			}
+			.btn_2{
+				margin-top: 75px;
+				font-size: 18px;
+				font-weight: bold;
+				color: #fff;
+				background-color: #d2413e;
+				// &:hover{
+				// 	background-color: #b10704;
+				// }
+			}
+			.btn:hover,.form-control:hover{
+				border-color: #80bdff;
+			}
+			.green_bor{
+				border: 1px solid #32da40;
+			}
+			.red_bor{
+				border: 1px solid #da4c2c;
+			}
+		}
+		#login_1{
+			// display: none;/* 部分一，隐藏 */
+			margin-top: 60px;
+			position: relative;
+			button:first-child{
+				border-top-right-radius: 0;
+				border-bottom-right-radius: 0;
+				background-color: #fff;
+				border: 1px solid #ced4da;
+				border-right: 0;
+			}
+			.dropdown-toggle,.form-control,.btn_1{
+				font-size: 16px;
+			}
+			.dropdown-toggle{
+				width: 118px;
+			}
+			.btn_1{
+				margin-top: 60px;
+				&:hover{
+					background-color: #ccc;
+				}
+			}
+			.btn_22:hover{
+				background-color: #b10704;
+			}
+			span{
+				width: 90px;
+				height: 25px;
+				position: absolute;
+				top: 15px;
+				right: 35px;
+				font-size: 12px;
+				line-height: 25px;
+				display: none;
+				&.pho_err{
+					background: #fff url(../../../public_img/user_img/error.png) no-repeat 64px -.5px;
+					color:#d85a49;
+					display: inline-block;
+				}
+				&.pho_cor{
+					background: #fff url(../../../public_img/user_img/correct.png) no-repeat 64px -.5px;
+					color: #5fbc5a;
+					display: inline-block;
+				}
+			}
+		}
+		#login_2{
+			display: none;	
+			margin-top: 60px;
+			position: relative;
+			.form-control{
+				width: 470px;
+				&~.form-control{
+					margin-top: 25px;
+				}
+				&.log2_err{
+					background: #fff url(../../../public_img/user_img/log_err.png) no-repeat 425px 15px;
+					display: inline-block;
+				}
+				&.log2_cor{
+					background: #fff url(../../../public_img/user_img/log_cor.png) no-repeat 425px 17px;
+					display: inline-block;
+				}
+			}
+			.btn{
+				margin-top: 30px;
+			}
+			span{
+				padding-left: 26px;
+				display: block;
+				background: url(../../../public_img/user_img/care1.png) no-repeat 0 3px;
+				position: absolute;
+				color: #666;
+				font-family: "Segoe UI Emoji";
+				display: none;
+				&.sp_err{
+					background: url(../../../public_img/user_img/care2.png) no-repeat 0 3px;
+				}
+			}
+			b{
+				height: 25px;
+				width: 25px;
+				position: absolute;
+				right: 50px;
+				display: block;
+				z-index: 5;
+				&:nth-child(8){
+					background: url(../../../public_img/user_img/nolook.png) no-repeat 1px 1px;
+					top: 95px;
+				}
+				&:last-child{
+					background: url(../../../public_img/user_img/nolook.png) no-repeat 1px 1px;
+					bottom: 100px;
+				}
+				&.look1{
+					background: url(../../../public_img/user_img/look.png) no-repeat 1px 4px;
+					top: 95px;
+				}
+				&.look2{
+					background: url(../../../public_img/user_img/look.png) no-repeat 1px 4px;
+					bottom: 100px;
+				}
+			}
+		}
+		#login_3{
+			display: none;
+			
+			text-align: center;
+			span{
+				display: block;
+				margin-top: 10px;
+				font-size: 40px;
+				font-weight: bolder;
+				color: #b10704;
+				&~a{
+					margin-top: 55px;
+					font-size: 24px;
+					color: #666;
+				}
+			}
+			a{
+				display: block;
+			}
+		}
+	}
+}
+
+  

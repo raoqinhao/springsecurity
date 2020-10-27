@@ -41,6 +41,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.formLogin().loginPage("/toLogin")
                 .loginProcessingUrl("/toLogin")
                 .defaultSuccessUrl("/toIndex")
+                .successForwardUrl("/toIndex")
                 .permitAll()
                 .and()
                 .logout()
@@ -51,6 +52,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutSuccessHandler(logoutSuccessHandler())
                 .permitAll();
         http.authorizeRequests()
+                .antMatchers("/css/**").permitAll()
+                .antMatchers("/js/**").permitAll()
+                .antMatchers("/sass/**").permitAll()
+                .antMatchers("/templates/**").permitAll()
+                .antMatchers("/toRegisterPage").permitAll()
+                .antMatchers("/toRegister").permitAll()
                 .antMatchers("admin").permitAll()
                 .anyRequest().authenticated();
         // 跨站点请求伪造功能关闭

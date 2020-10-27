@@ -1,16 +1,126 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>欢迎登录</title>
-</head>
-<body>
-
-    <form action="/toLogin" method="post">
-        用户名：<input name="username" type="text" placeholder="请输入账号"/>
-        密码：<input name="password" type="password" placeholder="请输入密码"/>
-        <input type="submit" value="提交"/>
-    </form>
-
-</body>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>login</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<link rel="stylesheet" type="text/css" th:href="@{css/bootstrap.css}">
+		<link rel="stylesheet" type="text/css" th:href="@{css/login.css}"/>
+	</head>
+	<body>
+		<div class="container-fluid fluid_hf">
+			<div class="container">
+				<ul class="header breadcrumb align-items-center pl-5">
+					<li class="breadcrumb-item ml-5"><img  th:src="@{public_img/user_img/logo.png}" ></li>
+					<li class="breadcrumb-item mt-1"><span>用户登录</span></li>
+				</ul>
+			</div>
+		</div>
+		<div class="container-fluid fluid_body no-gutters">
+			<div class="warnning">
+				<p><span></span>依据《网络安全法》，为保障您的账户安全和正常使用，请尽快完成手机号验证！ 新版<a href="javascript:;">《沃斯隐私政策》</a>已上线，将更有利于保护您的个人隐私。
+				</p>
+			</div>
+			<div class="container">
+				<div class="row">
+					<div class="reg_body offset-lg-7 col-lg-4 justify-content-center"><!-- 目标区域 -->
+						<ul class="body_account_header breadcrumb flex-nowrap d-flex justify-content-center"><!-- 两个登陆选择 -->
+							<li class="breadcrumb-item"><a href="javascript:;" onclick="code()">扫码登陆</a></li>
+							<li class="breadcrumb-item"><a href="javascript:;" onclick="account()">账号登陆</a></li>
+						</ul>
+						<div class="body_play text-center">
+							<!-- 账号登陆 -->
+							<div class="account_reg">
+								<!-- 用户名和密码输入框 -->
+								<div class="body_account_input">
+									<form action="/toLogin" method="post">
+										<input name="username" placeholder="手机号/邮箱" type="text" class="input_t form-control">
+										<input name="password" placeholder="密码" type="text" class="input_b form-control">
+										<a class="mt-4 d-block text-lg-left text-sm-center" href="javascript:;">短信验证码登陆</a>
+										<div>
+											<button type="submit" class="btn btn-info">登陆</button>
+										</div>
+									</form>
+									<!-- <input placeholder="用户名/邮箱/手机号" type="text" class="input_t form-control">
+									<input placeholder="密码" type="text" class="input_b form-control">
+									<a class="mt-4 d-block text-lg-left text-sm-center" href="javascript:;">短信验证码登陆</a> -->
+								</div>
+								<!-- 登录按钮 -->
+								<!-- <div>
+									<button type="button" class="btn btn-info">登陆</button>
+								</div> -->
+							</div>
+							<!-- 账号登陆 -->
+							<!-- <div class="account_reg"> -->
+								<!-- 用户名和密码输入框 -->
+								<!-- <div class="body_account_input">
+									<input placeholder="用户名/邮箱/手机号" type="text" class="input_t form-control">
+									<input placeholder="密码" type="text" class="input_b form-control">
+									<a class="mt-4 d-block text-lg-left text-sm-center" href="javascript:;">短信验证码登陆</a>
+								</div> -->
+								<!-- 登录按钮 -->
+								<!-- <div>
+									<button type="button" class="btn btn-info">登陆</button>
+								</div>
+							</div> -->
+							<div class="code_reg"><!-- 扫码登陆 -->
+								<div class="code_1">
+									<img th:src="@{public_img/user_img/erweima.gif}" >
+									<img class="phone" th:src="@{public_img/user_img/phonesaoma.png}" >
+								</div>
+								<div class="code_2">
+									<div>
+										打开<a href="javascript:;">手机沃斯 </a> 扫描二维码
+									</div>
+									<ul>
+										<li>
+											<span></span>
+											<em>免输入</em>
+										</li>
+										<li>
+											<span></span>
+											<em>更快</em>
+										</li>
+										<li>
+											<span></span>
+											<em>更安全</em>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div>
+							<ul class="body_account_tip breadcrumb justify-content-center mb-0">
+								<li class="breadcrumb-item"><a href="/toRegisterPage">注册</a></li>
+								<li class="breadcrumb-item"><a href="">忘记密码</a></li>
+								<li class="breadcrumb-item"><a href="">遇见问题</a></li>
+							</ul>
+						</div>
+						<div><!-- 图标登陆 -->
+							<ul class="nav justify-content-center">
+								<li class="nav-link"><a href=""><img th:src="@{public_img/user_img/qq.png}"></a></li>
+								<li class="nav-link"><a href=""><img th:src="@{public_img/user_img/wx.png}"></a></li>
+								<li class="nav-link"><a href=""><img th:src="@{public_img/user_img/zfb.png}"></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid fluid_hf">
+			<div class="foot">
+				<ul class="footer breadcrumb">
+					<li class="breadcrumb-item"><a href="javascript:;">沃斯帐号与云空间用户协议</a></li>
+					<li class="breadcrumb-item"><a href="javascript:;">关于沃斯帐号与云空间隐私的声明</a></li>
+					<li class="breadcrumb-item"><a href="javascript:;">常见问题</a></li>
+					<li class="breadcrumb-item"><a href="javascript:;">Cookies</a></li>
+				</ul>
+				<p>沃斯帐号 版权所有 © 2020-2020</p>
+			</div>
+		</div>
+		<script th:src="@{js/jquery.min.js}"></script>
+		<script th:src="@{js/popper.min.js}"></script>
+		<script th:src="@{js/bootstrap.min.js}"></script>
+		<script th:src="@{js/login.js}"></script>
+	</body>
 </html>

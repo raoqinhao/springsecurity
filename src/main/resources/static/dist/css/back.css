@@ -1,0 +1,28 @@
+@charset "utf-8";
+/* CSS Document */
+body
+  {
+	background-color: #909090;
+	color: #FFFFFF;
+	font-size: 24px;
+  }
+body table {
+	color: #DFDFDF;
+}
+.h1 {
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-left: 0px;
+	margin-bottom: 0px;
+	width: 240px;
+	border-radius: 350px / 300px;
+	border: 0;
+	height: 24px;
+}
+
+.h2 {
+	font-size: 16px;
+	color: white;
+	border: 0;
+	background-color: #909090;
+}

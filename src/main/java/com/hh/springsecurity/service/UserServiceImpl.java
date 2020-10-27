@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService{
                 userBean.setId(UUID.randomUUID().toString().replaceAll("-",""));
             }
             int result = userMapper.saveUserByRegister(userBean);
-            if (result != 0) {
+            if (result > 0) {
                 return "注册成功";
             }
         } catch (Exception e) {
