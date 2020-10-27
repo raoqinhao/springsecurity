@@ -19,7 +19,7 @@ public class SpringMybatisTest {
     @Autowired
     private UserMapper userMapper;
 
-//    @Test
+    //    @Test
     public void getUserMapper() {
         UserBean userBean = userMapper.findUserById("");
         UserBean userName = userMapper.findUserByUserName("zhangsan");
@@ -28,14 +28,14 @@ public class SpringMybatisTest {
         System.out.println(userName.getUsername());
     }
 
-//    @Test
+    //    @Test
     public void insertUserInfo() {
-        UserBean userBean = new UserBean(UUID.randomUUID().toString().replaceAll("-",""),"lisi","123","17167495555");
+        UserBean userBean = new UserBean(UUID.randomUUID().toString().replaceAll("-", ""), "lisi", "123", "17167495555");
         int i = userMapper.saveUserByRegister(userBean);
         System.out.println(i);
     }
 
-//    @Test
+    //    @Test
     public void createUUID() {
         String uuid = UUID.randomUUID().toString().replaceAll("-", "");
         System.out.println(uuid);
