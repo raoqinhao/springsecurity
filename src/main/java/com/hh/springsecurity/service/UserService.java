@@ -12,4 +12,6 @@ public interface UserService {
 
     List<UserBean> findAllUser();
 
+    void findUserByMulThread();
+
 }

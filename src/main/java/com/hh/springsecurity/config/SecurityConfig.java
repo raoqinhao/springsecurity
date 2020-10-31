@@ -38,7 +38,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.formLogin().loginPage("/toLogin")
+        http.formLogin()
+                .usernameParameter("username")
+                .passwordParameter("password")
+                .loginPage("/toLogin")
                 .loginProcessingUrl("/toLogin")
                 .defaultSuccessUrl("/toIndex")
                 .successForwardUrl("/toIndex")
@@ -60,6 +63,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/templates/**").permitAll()
                 .antMatchers("/toRegisterPage").permitAll()
                 .antMatchers("/toRegister").permitAll()
+                .antMatchers("/findAllUser").hasRole("admin")
                 .antMatchers("admin").permitAll()
                 .anyRequest().authenticated();
         // 跨站点请求伪造功能关闭

@@ -22,4 +22,10 @@ public interface UserMapper {
     int saveUserByRegister(UserBean userBean);
 
     List<UserBean> findAllUser();
+
+    @Select("select * from u_user limit #{start},#{size}")
+    List<UserBean> findAllUserInfo(@Param("start") int start,@Param("size")int size);
+
+    @Select("select count(*) from u_user")
+    int countAllUserInfo();
 }

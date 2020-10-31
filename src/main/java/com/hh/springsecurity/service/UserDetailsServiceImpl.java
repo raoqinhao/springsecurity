@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service("userDetailsService")
@@ -26,7 +27,13 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         if (userBean == null) {
             throw new UsernameNotFoundException("未找到相关用户");
         }
-        List<GrantedAuthority> grantedAuthorities = AuthorityUtils.commaSeparatedStringToAuthorityList("admin");
-        return new User(userBean.getUsername(), new BCryptPasswordEncoder().encode(userBean.getPassword()), grantedAuthorities);
+        List<GrantedAuthority> grantedAuthorities = AuthorityUtils.commaSeparatedStringToAuthorityList("general_string");
+        List<GrantedAuthority> authorityList = AuthorityUtils.createAuthorityList("ROLE_admin");
+        List<GrantedAuthority> authoritys = new ArrayList<>();
+        grantedAuthorities.forEach(e -> authoritys.add(e));
+        if ("admin".equals(userName)) {
+            authorityList.stream().forEach(e -> authoritys.add(e));
+        }
+        return new User(userBean.getUsername(), new BCryptPasswordEncoder().encode(userBean.getPassword()), authoritys);
     }
 }

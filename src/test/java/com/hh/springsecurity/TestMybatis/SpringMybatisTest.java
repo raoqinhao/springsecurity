@@ -12,15 +12,16 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.rmi.NotBoundException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Random;
 import java.util.UUID;
 
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
-@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
+//@RunWith(SpringRunner.class)
+//@SpringBootTest
+//@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 public class SpringMybatisTest {
 
-    @Autowired
+//    @Autowired
     private UserMapper userMapper;
 
     //    @Test
@@ -43,7 +44,7 @@ public class SpringMybatisTest {
         throw new NotBoundException(s);
     }
 
-    //    @Test
+//    @Test
     public void insertUserInfo() {
         UserBean userBean = new UserBean(UUID.randomUUID().toString().replaceAll("-", ""), "lisi", "123", "17167495555");
         int i = userMapper.saveUserByRegister(userBean);
@@ -55,4 +56,36 @@ public class SpringMybatisTest {
         String uuid = UUID.randomUUID().toString().replaceAll("-", "");
         System.out.println(uuid);
     }
+
+//    @Test
+    public void createUserBean() {
+        for (int i = 0; i < 993; i++) {
+            UserBean userBean = new UserBean(UUID.randomUUID().toString().replaceAll("-",""), createUserName(), "123456789", createMobilePhone());
+            userMapper.saveUserByRegister(userBean);
+        }
+    }
+
+
+    private String createUserName() {
+        String randomchar = "abcdefghijklmnopqrstuvwxyz";
+        String userName = "";
+        for (int i = 0; i < 8; i++) {
+            int index = new Random().nextInt(26);
+            char charAt = randomchar.charAt(index);
+            userName += charAt;
+        }
+        return userName;
+    }
+
+    private String createMobilePhone() {
+        String randomchar = "0123456789";
+        String MobilePhone = "178";
+        for (int i = 0; i < 8; i++) {
+            int index = new Random().nextInt(10);
+            char charAt = randomchar.charAt(index);
+            MobilePhone += charAt;
+        }
+        return MobilePhone;
+    }
+
 }

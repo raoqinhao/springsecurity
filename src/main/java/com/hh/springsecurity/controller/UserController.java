@@ -59,4 +59,13 @@ public class UserController {
         return userService.findAllUser();
     }
 
+
+    @RequestMapping("/findUserByMulThread")
+    @ResponseBody
+    public String findUserByMulThread() {
+        userService.findUserByMulThread();
+        return "ok";
+    }
+
+
 }
