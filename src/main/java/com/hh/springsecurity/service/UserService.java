@@ -14,4 +14,5 @@ public interface UserService {
 
     void findUserByMulThread();
 
+    UserBean findUserByUserName(String username);
 }

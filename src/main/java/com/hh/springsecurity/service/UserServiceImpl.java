@@ -70,4 +70,9 @@ public class UserServiceImpl implements UserService{
 
     }
 
+    @Override
+    public UserBean findUserByUserName(String username) {
+        return userMapper.findUserByUserName(username);
+    }
+
 }

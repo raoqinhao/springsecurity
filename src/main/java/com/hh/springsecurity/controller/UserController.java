@@ -1,12 +1,19 @@
 package com.hh.springsecurity.controller;
 
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.hh.springsecurity.pojo.UserBean;
 import com.hh.springsecurity.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -21,7 +28,14 @@ public class UserController {
     }
 
     @RequestMapping("/toIndex")
-    public String toIndex() {
+    public String toIndex(HttpServletRequest request) {
+        Object auth = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (auth != null && auth != "") {
+            JSONObject jsonObject = JSONObject.parseObject(JSON.toJSONString(auth));
+            String username = jsonObject.getString("username");
+            UserBean userBean = userService.findUserByUserName(username);
+            request.getSession().setAttribute("UserBean", userBean);
+        }
         return "index";
     }
 
