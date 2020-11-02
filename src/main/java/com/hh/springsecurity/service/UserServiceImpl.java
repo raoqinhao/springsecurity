@@ -1,6 +1,7 @@
 package com.hh.springsecurity.service;
 
 import com.alibaba.fastjson.JSONObject;
+import com.hh.springsecurity.exception.NotFoundUserNameException;
 import com.hh.springsecurity.mapper.UserMapper;
 import com.hh.springsecurity.pojo.UserBean;
 import com.hh.springsecurity.thread.DataMigrationThread;
@@ -21,6 +22,8 @@ public class UserServiceImpl implements UserService{
     @Override
     public UserBean findUserById(String id) {
         UserBean userBean = userMapper.findUserById(id);
+        if (userBean == null)
+            throw new NotFoundUserNameException("未找到用户信息");
         return userBean;
 //        return null;
     }
