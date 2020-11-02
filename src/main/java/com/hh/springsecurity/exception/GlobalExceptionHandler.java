@@ -1,6 +1,5 @@
-package com.hh.springsecurity.controller;
+package com.hh.springsecurity.exception;
 
-import com.hh.springsecurity.exception.NotFoundUserNameException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ControllerAdvice;
