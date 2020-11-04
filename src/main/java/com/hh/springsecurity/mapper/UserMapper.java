@@ -21,6 +21,9 @@ public interface UserMapper {
     @Insert("insert into u_user(id,username,password,mobilephone) values(#{id},#{username},#{password},#{mobilephone}) ")
     int saveUserByRegister(UserBean userBean);
 
+    @Insert("insert into u_user_migration(id,username,password,mobilephone) values(#{id},#{username},#{password},#{mobilephone}) ")
+    int insertUserDataMigration(UserBean userBean);
+
     List<UserBean> findAllUser();
 
     @Select("select * from u_user limit #{start},#{size}")

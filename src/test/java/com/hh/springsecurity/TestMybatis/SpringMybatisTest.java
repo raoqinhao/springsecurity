@@ -11,6 +11,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.rmi.NotBoundException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Random;
 import java.util.UUID;
@@ -86,6 +90,24 @@ public class SpringMybatisTest {
             MobilePhone += charAt;
         }
         return MobilePhone;
+    }
+
+
+//    @Test
+    public void testTime() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd").withZone(ZoneId.of("Asia/Shanghai"));
+        ZonedDateTime zdt = ZonedDateTime.of(LocalDateTime.now(),ZoneId.of("Asia/Shanghai"));
+        String time = zdt.getYear() + "-" + zdt.getMonthValue() + "-" + (zdt.getDayOfMonth() < 10 ? 0 + "" + zdt.getDayOfMonth() : zdt.getDayOfMonth()) + " " + zdt.getHour() + ":" + zdt.getMinute() + ":" + (zdt.getSecond() < 10 ? 0 + "" + zdt.getSecond() : zdt.getSecond());
+        System.out.println(time);
+    }
+
+    @Test
+    public void testSimpleDateTime() throws Exception {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String startTime = sdf.format(new Date());
+        String stopTime = sdf.format(new Date());
+        System.out.println( startTime + "" + stopTime);
+        System.out.println(sdf.parse(startTime).getTime());
     }
 
 }

@@ -7,13 +7,13 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.io.Serializable;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "u_user")
-public class UserBean implements Serializable {
+@Table(name = "u_user_migration")
+public class UserDataMigration {
+
     private static final long serialVersionUID = 1L;
 
     @Id
