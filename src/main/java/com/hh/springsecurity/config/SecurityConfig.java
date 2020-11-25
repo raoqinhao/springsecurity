@@ -1,6 +1,7 @@
 package com.hh.springsecurity.config;
 
 import com.hh.springsecurity.pojo.UserBean;
+import com.hh.springsecurity.strategy.LzcExpiredSessionStrategy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,7 +55,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .invalidateHttpSession(true)
                 .deleteCookies("JSESSIONID")
                 .logoutSuccessHandler(logoutSuccessHandler())
-                .permitAll();
+                .permitAll()
+                .and()
+                .sessionManagement()
+                .maximumSessions(3)
+                .maxSessionsPreventsLogin(false)
+                // 添加session过期策略
+                .expiredSessionStrategy(new LzcExpiredSessionStrategy());
         http.authorizeRequests()
                 .antMatchers("/css/**").permitAll()
                 .antMatchers("/js/**").permitAll()
