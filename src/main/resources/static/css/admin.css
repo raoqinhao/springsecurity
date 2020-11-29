@@ -1572,7 +1572,7 @@
   left: 0;
 }
 .main-layout-side {
-  width: 200px;
+  width: 160px;
   height: 100%;
   background: #444c63;
   position: absolute;
@@ -1586,10 +1586,16 @@
   -ms-transition: left 0.3s;
   transition: left 0.3s;
 }
-.main-layout-side .m-logo {
+/* .main-layout-side .m-logo {
   width: 200px;
   height: 200px;
   background: #00b5f9 url(../images/logo.jpg) center center no-repeat;
+} */
+.main-layout-side .m-logo {
+  width: 160px;
+  height: 80px;
+  background: #fff url(../images/logo.jpg) center -12px no-repeat;
+  background-size: 105px;
 }
 .main-layout-side .layui-nav {
   background: #444c63;
@@ -1613,14 +1619,14 @@
   color: #00b5f9;
 }
 .main-layout-side .layui-nav-tree .layui-nav-child a .l-line {
-  width: 12px;
-  display: inline-block;
-  line-height: 40px;
-  height: 40px;
-  float: left;
   margin-right: 10px;
   margin-left: 30px;
   background: url("../images/l-line.png") left center no-repeat;
+  width: 12px;
+  display: block;
+  line-height: 40px;
+  height: 40px;
+  float: left;
 }
 .main-layout-side .layui-nav-tree .layui-nav-child dd.layui-this,
 .main-layout-side .layui-nav-tree .layui-this {
@@ -1642,7 +1648,7 @@
 }
 .main-layout-container {
   position: absolute;
-  left: 200px;
+  left: 160px;
   right: 0;
   top: 0;
   bottom: 0;
@@ -1653,7 +1659,7 @@
   transition: left 0.3s;
 }
 .main-layout-header {
-  height: 60px;
+  height: 80px;
   border-bottom: 1px solid #f0f0f0;
   background: #fff;
 }
@@ -1678,6 +1684,8 @@
 }
 .main-layout-header .layui-nav li {
   border-left: 1px solid #f2f3f5;
+  height: 80px;
+  line-height: 80px;
 }
 .main-layout-header .layui-nav .layui-nav-item > a:hover {
   color: #999;
@@ -1703,8 +1711,15 @@
   left: 0;
   right: 0;
   bottom: 0;
-  top: 61px;
+  top: 80px;
   overflow: hidden;
+}
+ul.layui-nav-tree {
+  width: 160px;
+}
+.on {
+  background: #ffffff;
+  color: #180d0d !important;
 }
 .main-layout-tab {
   margin-top: 0;
