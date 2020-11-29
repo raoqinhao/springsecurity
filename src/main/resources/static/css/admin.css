@@ -1597,6 +1597,13 @@
   background: #fff url(../images/logo.jpg) center -12px no-repeat;
   background-size: 105px;
 }
+#timeShow {
+  float: left;
+  height: 100%;
+  padding: 0 15px;
+  font-size: 18px;
+  line-height: 80px;
+}
 .main-layout-side .layui-nav {
   background: #444c63;
 }
