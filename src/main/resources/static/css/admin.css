@@ -1298,6 +1298,13 @@
   background: #f2f2f2;
   color: #333;
 }
+#timeShow {
+    float: left;
+    height: 100%;
+    padding: 0 15px;
+    font-size: 18px;
+    line-height: 80px;
+}
 .layui-btn-primary:hover {
   border-color: #00b5f9;
   color: #333;
