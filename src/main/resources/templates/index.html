@@ -15,8 +15,9 @@
     <link rel="stylesheet" type="text/css" href="../static/layui/css/layui.css"/>
     <link rel="stylesheet" type="text/css" href="../static/css/admin.css"/>-->
 </head>
+
 <body>
-<div class="main-layout" id='main-layout'>
+  <div class="main-layout" id='main-layout'>
     <!--侧边栏-->
     <div class="main-layout-side">
         <div class="m-logo">
@@ -68,21 +69,22 @@
     </div>
     <!--右侧内容-->
     <div class="main-layout-container">
-        <!--头部-->
-        <div class="main-layout-header">
-            <ul class="layui-nav" lay-filter="rightNav">
-                <li class="layui-nav-item"><a href="javascript:;" data-url="email.html" data-id='4' data-text="邮件系统"><i
-                        class="iconfont">&#xe603;</i></a></li>
-                <li class="layui-nav-item">
-                    <a href="javascript:;" data-id='5' data-text="个人信息">欢迎： <span id="showName"></span></a>
-                </li>
-                <li class="layui-nav-item"><a href="javascript:;">退出</a></li>
-            </ul>
-        </div>
-        <!--主体内容-->
-        <div class="main-layout-body">
+      <!--头部-->
+      <div class="main-layout-header">
+        <div id="timeShow"></div>
+        <ul class="layui-nav" lay-filter="rightNav">
+          <li class="layui-nav-item"><a href="javascript:;" data-url="email.html" data-id='4' data-text="邮件系统"><i
+                class="iconfont">&#xe603;</i></a></li>
+          <li class="layui-nav-item">
+            <a href="javascript:;" data-id='5' data-text="个人信息">欢迎： <span id="showName"></span></a>
+          </li>
+          <li class="layui-nav-item"><a href="javascript:;">退出</a></li>
+        </ul>
+      </div>
+      <!--主体内容-->
+      <div class="main-layout-body">
 
-        </div>
+      </div>
     </div>
     <!--遮罩-->
     <div class="main-mask">
@@ -127,6 +129,40 @@
           break;
       }
     });
-</script>
+
+    var day = new Date().getDay();
+    /* 实时更新时间 */
+    function timeUpdate() {
+      let time = new Date();
+      time = time.toLocaleString("chinese",{ year: 'numeric', month: '2-digit', day: '2-digit', hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
+      time = time.replace(/[\/]/g,'-');
+      switch (day) {
+          case 0:
+              day = '星期日';
+              break;
+          case 1:
+              day = '星期一';
+              break;
+          case 2:
+              day = '星期二';
+              break;
+          case 3:
+              day = '星期三';
+              break;
+          case 4:
+              day = '星期四';
+              break;
+          case 5:
+              day = '星期五';
+              break;
+          case 6:
+              day = '星期六';
+      }
+      document.getElementById("timeShow").innerHTML = time + "  " + day;
+    }
+    timeUpdate();
+    setInterval('timeUpdate()', 1000);
+  </script>
 </body>
+
 </html>
