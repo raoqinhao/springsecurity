@@ -10,7 +10,11 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -25,7 +29,7 @@ public class UserController {
     }
 
     @RequestMapping("/toIndex")
-    public String toIndex(HttpServletRequest request) {
+    public String toIndex(HttpServletRequest request, HttpServletResponse response) throws Exception{
         Object auth = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (auth != null && auth != "") {
             JSONObject jsonObject = JSONObject.parseObject(JSON.toJSONString(auth));
@@ -42,7 +46,11 @@ public class UserController {
     }
 
     @RequestMapping("/toLogout")
-    public String toLogout() {
+    public String toLogout(HttpServletRequest request, HttpServletResponse response) {
+        Cookie cookie = new Cookie("JSESSIONID", null);
+        cookie.setMaxAge(0);
+        cookie.setValue("");
+        response.addCookie(cookie);
         return "login";
     }
 

@@ -45,13 +45,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .passwordParameter("password")
                 .loginPage("/toLogin")
                 .loginProcessingUrl("/toLogin")
-                .defaultSuccessUrl("/toIndex")
-                .successForwardUrl("/toIndex")
+//                下面两种跳转到主页面的时候转发到主页接口中，地址栏不发生改变
+//                .defaultSuccessUrl("/toIndex")
+//                .successForwardUrl("/toIndex")
+                // 表示登录成功后指定重定向到某个指定的接口中，例：toIndex
+                .successHandler((httpServletRequest, httpServletResponse, authentication) -> {
+                    httpServletResponse.setContentType("application/json;charset=utf=8");
+                    httpServletResponse.sendRedirect("toIndex");
+                })
                 .permitAll()
                 .and()
                 .logout()
-                .logoutUrl("/toLogout")
-                .logoutSuccessUrl("/toLogout")
+                // 默认登出功能只是跳转页面，并未将用户的sessionid删除。
+//                .logoutUrl("/toLogout")
+//                .logoutSuccessUrl("/toLogout")
                 .invalidateHttpSession(true)
                 .deleteCookies("JSESSIONID")
                 .logoutSuccessHandler(logoutSuccessHandler())
@@ -72,6 +79,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/lib/**").permitAll()
                 .antMatchers("/sass/**").permitAll()
                 .antMatchers("/dist/**").permitAll()
+                .antMatchers("/alibabafonts/**").permitAll()
                 .antMatchers("/public_img/**").permitAll()
                 .antMatchers("/templates/**").permitAll()
                 .antMatchers("/toRegisterPage").permitAll()
@@ -79,6 +87,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/findAllUser").hasRole("admin")
                 .antMatchers("admin").permitAll()
                 .anyRequest().authenticated();
+        //关闭html中的iframe拦截功能
+        http.headers().frameOptions().disable();
         // 跨站点请求伪造功能关闭
         http.csrf().disable();
     }

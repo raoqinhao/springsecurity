@@ -10,9 +10,11 @@
     <link rel="icon" type="image/x-icon" href="/images/logo.ico" />
     <link rel="stylesheet" type="text/css" th:href="@{layui/css/layui.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/admin.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/alibabafonts/iconfont.css}"/>
 
    <!-- <link rel="icon" type="image/x-icon" href="/images/logo.ico" />
     <link rel="stylesheet" type="text/css" href="../static/layui/css/layui.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/alibabafonts/iconfont.css"/>
     <link rel="stylesheet" type="text/css" href="../static/css/admin.css"/>-->
 </head>
 
@@ -46,10 +48,10 @@
                 <a href="javascript:;"><i class="iconfont">&#xe60c;</i>友情链接</a>
             </li>
             <li class="layui-nav-item">
-                <a href="javascript:;"><i class="iconfont">&#xe60a;</i>RBAC</a>
+                <a href="javascript:;" data-text="地图定位"><i class="iconfont">&#xe665;</i>地图定位</a><!-- &#xe60a; -->
             </li>
             <li class="layui-nav-item">
-                <a href="javascript:;" data-url="email.html" data-id='4' data-text="邮件系统"><i
+                <a href="javascript:;" data-url="/page/email" data-id='4' data-text="邮件系统"><i
                         class="iconfont">&#xe603;</i>邮件系统</a>
             </li>
             <li class="layui-nav-item">
@@ -62,7 +64,7 @@
                 <a href="javascript:;" data-id='5' data-url="/page/admin-info" data-text="个人信息"><i class="iconfont">&#xe606;</i>个人信息</a>
             </li>
             <li class="layui-nav-item">
-                <a href="javascript:;" data-url="system.html" data-id='6' data-text="系统设置"><i
+                <a href="javascript:;" data-url="/page/system" data-id='6' data-text="系统设置"><i
                         class="iconfont">&#xe60b;</i>系统设置</a>
             </li>
         </ul>
@@ -73,12 +75,12 @@
       <div class="main-layout-header">
         <div id="timeShow"></div>
         <ul class="layui-nav" lay-filter="rightNav">
-          <li class="layui-nav-item"><a href="javascript:;" data-url="email.html" data-id='4' data-text="邮件系统"><i
+          <li class="layui-nav-item"><a href="javascript:;" data-url="/page/email" data-id='4' data-text="邮件系统"><i
                 class="iconfont">&#xe603;</i></a></li>
           <li class="layui-nav-item">
             <a href="javascript:;" data-id='5' data-text="个人信息">欢迎： <span id="showName"></span></a>
           </li>
-          <li class="layui-nav-item"><a href="javascript:;">退出</a></li>
+          <li class="layui-nav-item"><a href="/toLogout">退出</a></li>
         </ul>
       </div>
       <!--主体内容-->
@@ -99,33 +101,32 @@
 <input type="hidden" id="username" name="username" th:value="${session.UserBean.username}">
 <script>
 
-    // var form;
-    // layui.use(['form'],function () {
-    //     form = layui.form;
-    //     debugger
-    //     var username = $("#username");
-    //     $("#showName").html(username);
-    // })
+    // 获取当前用户名称
+    $("#showName").html($("#username").val());
 
     /* 获取列表元素，添加事件委托 */
     let layuiNav = document.getElementsByClassName("layui-nav")[0];
     layuiNav.addEventListener("click", function(e) {
       switch(e.target.dataset.text){
         case '后台菜单':
-          document.getElementsByClassName("main-layout-body")[0].innerHTML = '<object type="text/html" data="menu1.html" width="100%" height="100%"></object>';
-          $(e.target).addClass("on").parent().parent().parent().siblings().find("a").removeClass("on");;
+          document.getElementsByClassName("main-layout-body")[0].innerHTML = '<object type="text/html" data="/page/menu1" width="100%" height="100%"></object>';
+          $(e.target).addClass("on").parent().parent().parent().siblings().find("a").removeClass("on");
           break;
         case '邮件系统':
-          document.getElementsByClassName("main-layout-body")[0].innerHTML = '<object type="text/html" data="email.html" width="100%" height="100%"></object>';
-          $(e.target).addClass("on").parent().siblings().find("a").removeClass("on");;
+          document.getElementsByClassName("main-layout-body")[0].innerHTML = '<object type="text/html" data="/page/email" width="100%" height="100%"></object>';
+          $(e.target).addClass("on").parent().siblings().find("a").removeClass("on");
           break;
         case '个人信息':
-          document.getElementsByClassName("main-layout-body")[0].innerHTML = '<object type="text/html" data="admin-info.html" width="100%" height="100%"></object>';
-          $(e.target).addClass("on").parent().siblings().find("a").removeClass("on");;
+          document.getElementsByClassName("main-layout-body")[0].innerHTML = '<object type="text/html" data="/page/admin-info" width="100%" height="100%"></object>';
+          $(e.target).addClass("on").parent().siblings().find("a").removeClass("on");
           break;
         case '系统设置':
-          document.getElementsByClassName("main-layout-body")[0].innerHTML = '<object type="text/html" data="system.html" width="100%" height="100%"></object>';
-          $(e.target).addClass("on").parent().siblings().find("a").removeClass("on");;
+          document.getElementsByClassName("main-layout-body")[0].innerHTML = '<object type="text/html" data="/page/system" width="100%" height="100%"></object>';
+          $(e.target).addClass("on").parent().siblings().find("a").removeClass("on");
+          break;
+        case '地图定位':
+          document.getElementsByClassName("main-layout-body")[0].innerHTML = '<object type="text/html" data="/page/map-data" width="100%" height="100%"></object>';
+          $(e.target).addClass("on").parent().siblings().find("a").removeClass("on");
           break;
       }
     });
