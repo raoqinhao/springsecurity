@@ -22,7 +22,9 @@ public class UserBean implements Serializable {
     private String username;
     @Column(name = "password")
     private String password;
-    @Column(name = "mobilephone")
-    private String mobilephone;
+    @Column(name = "email")
+    private String email;
+    @Column(name = "telephone")
+    private String telephone;
 
 }
